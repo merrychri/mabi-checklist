@@ -49,12 +49,26 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
+      table-layout: fixed; /* 중요: 열 너비 고정 */
     }
+th:nth-child(1), td:nth-child(1) { width: 30%; }  /* 주는 물품 */
+th:nth-child(2), td:nth-child(2) { width: 30%; }  /* 받는 물품 */
+th:nth-child(3), td:nth-child(3) { width: 20%; }  /* 제한 */
+th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
+    
+    @media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+}
     th, td {
       padding: 8px;
       border-bottom: 1px solid #eee;
       text-align: left;
       font-size: 0.95em;
+        white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
     }
     input[type="checkbox"] {
       transform: scale(1.2);
