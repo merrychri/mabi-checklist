@@ -49,21 +49,17 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      table-layout: fixed; /* 중요: 열 너비 고정 */
+      table-layout: fixed;
     }
-th:nth-child(1), td:nth-child(1) { width: 30%; }  /* 주는 물품 */
-th:nth-child(2), td:nth-child(2) { width: 30%; }  /* 받는 물품 */
-th:nth-child(3), td:nth-child(3) { width: 20%; }  /* 제한 */
-th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
-    
+    th:nth-child(1), td:nth-child(1) { width: 30%; }
+    th:nth-child(2), td:nth-child(2) { width: 30%; }
+    th:nth-child(3), td:nth-child(3) { width: 20%; }
+    th:nth-child(4), td:nth-child(4) { width: 20%; }
     th, td {
       padding: 8px;
       border-bottom: 1px solid #eee;
       text-align: left;
       font-size: 0.95em;
-        white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
     }
     input[type="checkbox"] {
       transform: scale(1.2);
@@ -102,42 +98,42 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
             <td>케이틴 특제 통밀빵 1개</td>
             <td>성수 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_0" ></td>
+            <td><input type="checkbox" id="chk_케이틴_특제_통밀빵_1_성수_1" ></td>
           </tr>
         
           <tr data-category="티르코네일">
             <td>케이틴 특제 통밀빵 10개</td>
             <td>성수 10개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_1" ></td>
+            <td><input type="checkbox" id="chk_케이틴_특제_통밀빵_10_성수_10" ></td>
           </tr>
         
           <tr data-category="티르코네일">
             <td>우유 10개</td>
             <td>케이틴 특제 통밀빵 3개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_2" ></td>
+            <td><input type="checkbox" id="chk_우유_10_케이틴_특제_통밀빵_3" ></td>
           </tr>
         
           <tr data-category="티르코네일">
             <td>양털 50개</td>
             <td>빈악보 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_3" ></td>
+            <td><input type="checkbox" id="chk_양털_50_빈악보_1" ></td>
           </tr>
         
           <tr data-category="티르코네일">
             <td>마요네즈 고기볶음 2개</td>
             <td>치명타 비약 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_4" ></td>
+            <td><input type="checkbox" id="chk_마요네즈_고기볶음_2_치명타_비약_1" ></td>
           </tr>
         
           <tr data-category="티르코네일">
             <td>강철괴 2개</td>
             <td>합금강괴 1개</td>
             <td>최대 4회</td>
-            <td><input type="checkbox" id="chk_5" ></td>
+            <td><input type="checkbox" id="chk_강철괴_2_합금강괴_1" ></td>
           </tr>
         
         </tbody>
@@ -161,28 +157,28 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
             <td>합금강괴 2개</td>
             <td>특수강괴 1개</td>
             <td>최대 4회</td>
-            <td><input type="checkbox" id="chk_6" ></td>
+            <td><input type="checkbox" id="chk_합금강괴_2_특수강괴_1" ></td>
           </tr>
         
           <tr data-category="던바튼">
             <td>감자샐러드 2개</td>
             <td>궁극기 비약 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_7" ></td>
+            <td><input type="checkbox" id="chk_감자샐러드_2_궁극기_비약_1" ></td>
           </tr>
         
           <tr data-category="던바튼">
             <td>생크림 4개</td>
             <td>글리니스의 애플 밀크티 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_8" ></td>
+            <td><input type="checkbox" id="chk_생크림_4_글리니스의_애플_밀크티_1" ></td>
           </tr>
         
           <tr data-category="던바튼">
             <td>애플 밀크티 3개</td>
             <td>상급 목재+ 12개</td>
             <td>최대 2회</td>
-            <td><input type="checkbox" id="chk_9" ></td>
+            <td><input type="checkbox" id="chk_애플_밀크티_3_상급_목재+_12" ></td>
           </tr>
         
         </tbody>
@@ -206,7 +202,7 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
             <td>야채볶음 1개</td>
             <td>상급목재 4개</td>
             <td>최대 2회</td>
-            <td><input type="checkbox" id="chk_10" ></td>
+            <td><input type="checkbox" id="chk_야채볶음_1_상급목재_4" ></td>
           </tr>
         
         </tbody>
@@ -230,7 +226,7 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
             <td>샤와르마 1개</td>
             <td>뛰어난 붕대 5개</td>
             <td>최대 3회</td>
-            <td><input type="checkbox" id="chk_11" checked></td>
+            <td><input type="checkbox" id="chk_샤와르마_1_뛰어난_붕대_5" checked></td>
           </tr>
         
         </tbody>
@@ -254,28 +250,28 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
             <td>콩 10개</td>
             <td>담백한 고기 15개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_12" ></td>
+            <td><input type="checkbox" id="chk_콩_10_담백한_고기_15" ></td>
           </tr>
         
           <tr data-category="반호르">
             <td>농어매운탕 1개</td>
             <td>은합금괴 10개</td>
             <td>매주 최대 1회</td>
-            <td><input type="checkbox" id="chk_13" ></td>
+            <td><input type="checkbox" id="chk_농어매운탕_1_은합금괴_10" ></td>
           </tr>
         
           <tr data-category="반호르">
             <td>합금강괴 30개</td>
             <td>은합금괴 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_14" ></td>
+            <td><input type="checkbox" id="chk_합금강괴_30_은합금괴_1" ></td>
           </tr>
         
           <tr data-category="반호르">
             <td>특수강괴 3개</td>
             <td>은합금괴 1개</td>
             <td>최대 1회</td>
-            <td><input type="checkbox" id="chk_15" ></td>
+            <td><input type="checkbox" id="chk_특수강괴_3_은합금괴_1" ></td>
           </tr>
         
         </tbody>
@@ -291,13 +287,18 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }  /* 교환 */
     const lastSaved = localStorage.getItem("lastResetDate");
 
     if (lastSaved !== todayStr && today.getHours() >= 6) {
-      checkboxes.forEach(cb => cb.checked = false);
+      checkboxes.forEach(cb => {
+        cb.checked = false;
+        localStorage.setItem(cb.id, false);
+      });
       localStorage.setItem("lastResetDate", todayStr);
     }
 
     checkboxes.forEach(cb => {
       const saved = localStorage.getItem(cb.id);
       if (saved === "true") cb.checked = true;
+      else if (saved === "false") cb.checked = false;
+
       cb.addEventListener("change", () => {
         localStorage.setItem(cb.id, cb.checked);
       });
