@@ -368,15 +368,18 @@
       cb.checked = saved === "true";
       if (cb.checked) cb.closest('tr').classList.add("checked-row");
 
-      cb.addEventListener("change", () => {
-        localStorage.setItem(cb.id, cb.checked);
-        if (cb.checked) {
-          cb.closest('tr').classList.add("checked-row");
-        } else {
-          cb.closest('tr').classList.remove("checked-row");
-        }
-      });
-    });
+checkbox.addEventListener('change', function () {
+  const tr = this.closest('tr');
+  if (this.checked) {
+    tr.classList.add('checked');
+    checklist[this.dataset.key] = true;
+  } else {
+    tr.classList.remove('checked');  // ✅ 중요: 클래스 제거
+    checklist[this.dataset.key] = false;
+  }
+  localStorage.setItem('checklist', JSON.stringify(checklist));
+});
+
 
     function filterCategory(category) {
       const sections = document.querySelectorAll(".category-section");
