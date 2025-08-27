@@ -69,7 +69,7 @@ body {
       font-weight: bold;
     }
     table {
-      width: 90%;
+      width: 95%;
       border-collapse: collapse;
       margin-top: 10px;
       margin-left:auto; 
@@ -316,7 +316,7 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
       });
     });
 
-    window.filterCategory = function (category) {
+    function filterCategory(category) {
       const sections = document.querySelectorAll(".category-section");
       sections.forEach(sec => {
         const secCategory = sec.getAttribute("data-category");
@@ -327,10 +327,13 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
         }
       });
       const btns = document.querySelectorAll("#categoryButtons button");
+      
+      const category = event.target.getAttribute("data-category");
       btns.forEach(btn => btn.classList.remove("active"));
       event.target.classList.add("active");
-    };
-  });
+    
+      event.target.classList.add("active");
+    }
 </script>
 </body>
 </html>
