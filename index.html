@@ -68,7 +68,14 @@
     .category-section {
       margin-bottom: 40px;
     }
-  </style>
+  
+    .checked-row td {
+      background-color: #f0f0f0;
+      text-decoration: line-through;
+      color: #999;
+    }
+    </style>
+
 </head>
 <body>
   <div class="container">
@@ -299,7 +306,16 @@
       if (saved === "true") cb.checked = true;
       else if (saved === "false") cb.checked = false;
 
+      
+      if (cb.checked) cb.closest('tr').classList.add("checked-row");
+      else cb.closest('tr').classList.remove("checked-row");
+
       cb.addEventListener("change", () => {
+        localStorage.setItem(cb.id, cb.checked);
+        if (cb.checked) cb.closest('tr').classList.add("checked-row");
+        else cb.closest('tr').classList.remove("checked-row");
+      });
+
         localStorage.setItem(cb.id, cb.checked);
       });
     });
