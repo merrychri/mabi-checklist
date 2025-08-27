@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘의 물물교환 체크리스트</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f9f1f5;
+      margin: 0;
+      padding: 30px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    .subtext {
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-weight: bold;
+      background: #ffe0b3;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 0.95em;
+    }
+    th {
+      color: #555;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 오늘의 물물교환 체크리스트</h1>
+    <div class="subtext">* 매일 오전 6시에 자동으로 리셋됩니다.</div>
+
+    <div class="section">
+      <div class="section-title">🧡 티르코네일</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>주는 물품</th>
+            <th>받는 물품</th>
+            <th>제한</th>
+            <th>교환</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>케이틴 특제 통밀빵 1개</td>
+            <td>성수 1개</td>
+            <td>일 1회</td>
+            <td><input type="checkbox" id="chk1"></td>
+          </tr>
+          <tr>
+            <td>케이틴 특제 통밀빵 10개</td>
+            <td>성수 10개</td>
+            <td>일 1회</td>
+            <td><input type="checkbox" id="chk2"></td>
+          </tr>
+          <tr>
+            <td>우유 10개</td>
+            <td>케이틴 특제 통밀빵 3개</td>
+            <td>일 1회</td>
+            <td><input type="checkbox" id="chk3"></td>
+          </tr>
+          <tr>
+            <td>사과 주스 1개</td>
+            <td>고급 연금술 재연소 촉매 1개</td>
+            <td>일 1회</td>
+            <td><input type="checkbox" id="chk4"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const today = new Date();
+    const todayStr = today.toISOString().slice(0, 10); // YYYY-MM-DD
+
+    // 로컬스토리지에 저장된 마지막 저장 날짜 가져오기
+    const lastSaved = localStorage.getItem("lastResetDate");
+
+    // 날짜가 다르면 체크박스 초기화
+    if (lastSaved !== todayStr && today.getHours() >= 6) {
+      checkboxes.forEach(cb => {
+        cb.checked = false;
+      });
+      localStorage.setItem("lastResetDate", todayStr);
+    }
+
+    // 체크박스 상태 저장 및 불러오기
+    checkboxes.forEach(cb => {
+      const saved = localStorage.getItem(cb.id);
+      if (saved === "true") cb.checked = true;
+
+      cb.addEventListener("change", () => {
+        localStorage.setItem(cb.id, cb.checked);
+      });
+    });
+  </script>
+</body>
+</html>
