@@ -66,7 +66,6 @@ body {
       cursor: pointer;
     }
     .category-buttons button.active {
-      color: #fff;
       font-weight: bold;
     }
     table {
@@ -317,38 +316,21 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
       });
     });
 
-    window.function filterCategory(category) {
-  const sections = document.querySelectorAll(".category-section");
-  sections.forEach(sec => {
-    const secCategory = sec.getAttribute("data-category");
-    sec.style.display = (category === "전체" || secCategory === category) ? "" : "none";
+    window.filterCategory = function (category) {
+      const sections = document.querySelectorAll(".category-section");
+      sections.forEach(sec => {
+        const secCategory = sec.getAttribute("data-category");
+        if (category === "전체" || secCategory === category) {
+          sec.style.display = "";
+        } else {
+          sec.style.display = "none";
+        }
+      });
+      const btns = document.querySelectorAll("#categoryButtons button");
+      btns.forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+    };
   });
-
-  // 버튼 스타일 초기화
-  const buttons = document.querySelectorAll("#categoryButtons button");
-  buttons.forEach(btn => {
-    btn.classList.remove("active");
-    btn.style.backgroundColor = "#eee"; // 기본 회색으로 초기화
-  });
-
-  // 클릭한 버튼 활성화 및 색상 적용
-  const clickedButton = [...buttons].find(btn => btn.innerText === category);
-  if (clickedButton) {
-    clickedButton.classList.add("active");
-    clickedButton.style.backgroundColor = categoryColors[category] || "#fcd9a0"; // 기본색
-  }
-}
-
-const categoryColors = {
-  "전체": "#fcd9a0",
-  "티르코네일": "#D1A980",
-  "던바튼": "#547792",
-  "두갈드아일": "#437057",
-  "가이레흐 언덕": "#EDA35A",
-  "반호르": "#F68537"
-};
-
-
 </script>
 </body>
 </html>
