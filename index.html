@@ -11,7 +11,7 @@
       padding: 30px;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       background: #fff;
       border-radius: 20px;
@@ -21,7 +21,7 @@
     h1 {
       text-align: center;
       font-size: 1.8em;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .subtext {
       text-align: center;
@@ -29,12 +29,21 @@
       color: #666;
       margin-bottom: 20px;
     }
-    .section-title {
+    .category-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .category-buttons button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      background: #eee;
+      cursor: pointer;
+    }
+    .category-buttons button.active {
+      background: #fcd9a0;
       font-weight: bold;
-      background: #ffe0b3;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-top: 30px;
     }
     table {
       width: 100%;
@@ -47,12 +56,12 @@
       text-align: left;
       font-size: 0.95em;
     }
-    th {
-      color: #555;
-    }
     input[type="checkbox"] {
       transform: scale(1.2);
       cursor: pointer;
+    }
+    .category-section {
+      margin-bottom: 40px;
     }
   </style>
 </head>
@@ -61,9 +70,14 @@
     <h1>📋 오늘의 물물교환 체크리스트</h1>
     <div class="subtext">* 매일 오전 6시에 자동으로 리셋됩니다.</div>
 
-    <div class="section">
-      <div class="section-title">🧡 티르코네일</div>
+    <div class="category-buttons" id="categoryButtons">
+      <button onclick="filterCategory('전체')" class="active">전체</button>
+      <button onclick="filterCategory('티르코네일')">티르코네일</button><button onclick="filterCategory('던바튼')">던바튼</button><button onclick="filterCategory('두갈드아일')">두갈드아일</button><button onclick="filterCategory('가이레흐 언덕')">가이레흐 언덕</button><button onclick="filterCategory('반호르')">반호르</button>
+    </div>
 
+    
+    <div class="category-section" data-category="티르코네일">
+      <h3>🤍 티르코네일</h3>
       <table>
         <thead>
           <tr>
@@ -74,60 +88,225 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+    
+          <tr data-category="티르코네일">
             <td>케이틴 특제 통밀빵 1개</td>
             <td>성수 1개</td>
-            <td>일 1회</td>
-            <td><input type="checkbox" id="chk1"></td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_0" ></td>
           </tr>
-          <tr>
+        
+          <tr data-category="티르코네일">
             <td>케이틴 특제 통밀빵 10개</td>
             <td>성수 10개</td>
-            <td>일 1회</td>
-            <td><input type="checkbox" id="chk2"></td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_1" ></td>
           </tr>
-          <tr>
+        
+          <tr data-category="티르코네일">
             <td>우유 10개</td>
             <td>케이틴 특제 통밀빵 3개</td>
-            <td>일 1회</td>
-            <td><input type="checkbox" id="chk3"></td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_2" ></td>
           </tr>
-          <tr>
-            <td>사과 주스 1개</td>
-            <td>고급 연금술 재연소 촉매 1개</td>
-            <td>일 1회</td>
-            <td><input type="checkbox" id="chk4"></td>
+        
+          <tr data-category="티르코네일">
+            <td>양털 50개</td>
+            <td>빈악보 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_3" ></td>
           </tr>
+        
+          <tr data-category="티르코네일">
+            <td>마요네즈 고기볶음 2개</td>
+            <td>치명타 비약 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_4" ></td>
+          </tr>
+        
+          <tr data-category="티르코네일">
+            <td>강철괴 2개</td>
+            <td>합금강괴 1개</td>
+            <td>최대 4회</td>
+            <td><input type="checkbox" id="chk_5" ></td>
+          </tr>
+        
         </tbody>
       </table>
     </div>
+    
+    <div class="category-section" data-category="던바튼">
+      <h3>🤍 던바튼</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>주는 물품</th>
+            <th>받는 물품</th>
+            <th>제한</th>
+            <th>교환</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr data-category="던바튼">
+            <td>합금강괴 2개</td>
+            <td>특수강괴 1개</td>
+            <td>최대 4회</td>
+            <td><input type="checkbox" id="chk_6" ></td>
+          </tr>
+        
+          <tr data-category="던바튼">
+            <td>감자샐러드 2개</td>
+            <td>궁극기 비약 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_7" ></td>
+          </tr>
+        
+          <tr data-category="던바튼">
+            <td>생크림 4개</td>
+            <td>글리니스의 애플 밀크티 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_8" ></td>
+          </tr>
+        
+          <tr data-category="던바튼">
+            <td>애플 밀크티 3개</td>
+            <td>상급 목재+ 12개</td>
+            <td>최대 2회</td>
+            <td><input type="checkbox" id="chk_9" ></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="category-section" data-category="두갈드아일">
+      <h3>🤍 두갈드아일</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>주는 물품</th>
+            <th>받는 물품</th>
+            <th>제한</th>
+            <th>교환</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr data-category="두갈드아일">
+            <td>야채볶음 1개</td>
+            <td>상급목재 4개</td>
+            <td>최대 2회</td>
+            <td><input type="checkbox" id="chk_10" ></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="category-section" data-category="가이레흐 언덕">
+      <h3>🤍 가이레흐 언덕</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>주는 물품</th>
+            <th>받는 물품</th>
+            <th>제한</th>
+            <th>교환</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr data-category="가이레흐 언덕">
+            <td>샤와르마 1개</td>
+            <td>뛰어난 붕대 5개</td>
+            <td>최대 3회</td>
+            <td><input type="checkbox" id="chk_11" checked></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="category-section" data-category="반호르">
+      <h3>🤍 반호르</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>주는 물품</th>
+            <th>받는 물품</th>
+            <th>제한</th>
+            <th>교환</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr data-category="반호르">
+            <td>콩 10개</td>
+            <td>담백한 고기 15개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_12" ></td>
+          </tr>
+        
+          <tr data-category="반호르">
+            <td>농어매운탕 1개</td>
+            <td>은합금괴 10개</td>
+            <td>매주 최대 1회</td>
+            <td><input type="checkbox" id="chk_13" ></td>
+          </tr>
+        
+          <tr data-category="반호르">
+            <td>합금강괴 30개</td>
+            <td>은합금괴 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_14" ></td>
+          </tr>
+        
+          <tr data-category="반호르">
+            <td>특수강괴 3개</td>
+            <td>은합금괴 1개</td>
+            <td>최대 1회</td>
+            <td><input type="checkbox" id="chk_15" ></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
   </div>
 
   <script>
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     const today = new Date();
-    const todayStr = today.toISOString().slice(0, 10); // YYYY-MM-DD
-
-    // 로컬스토리지에 저장된 마지막 저장 날짜 가져오기
+    const todayStr = today.toISOString().slice(0, 10);
     const lastSaved = localStorage.getItem("lastResetDate");
 
-    // 날짜가 다르면 체크박스 초기화
     if (lastSaved !== todayStr && today.getHours() >= 6) {
-      checkboxes.forEach(cb => {
-        cb.checked = false;
-      });
+      checkboxes.forEach(cb => cb.checked = false);
       localStorage.setItem("lastResetDate", todayStr);
     }
 
-    // 체크박스 상태 저장 및 불러오기
     checkboxes.forEach(cb => {
       const saved = localStorage.getItem(cb.id);
       if (saved === "true") cb.checked = true;
-
       cb.addEventListener("change", () => {
         localStorage.setItem(cb.id, cb.checked);
       });
     });
+
+    function filterCategory(category) {
+      const sections = document.querySelectorAll(".category-section");
+      sections.forEach(sec => {
+        if (category === "전체" || sec.getAttribute("data-category") === category) {
+          sec.style.display = "";
+        } else {
+          sec.style.display = "none";
+        }
+      });
+      const btns = document.querySelectorAll("#categoryButtons button");
+      btns.forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+    }
   </script>
 </body>
 </html>
