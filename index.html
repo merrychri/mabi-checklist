@@ -131,34 +131,49 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
   }
 
   h1 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 
   h3 {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   .reset-button {
     font-size: 12px;
     padding: 6px 12px;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .category-buttons button {
+    font-size: 0.8em;
+    padding: 6px 12px;
   }
 
   table {
     width: 100%;
     font-size: 0.85em;
+    table-layout: auto;
   }
 
   th, td {
     font-size: 0.9em;
-    padding: 6px;
+    padding: 6px 4px;
+    word-break: keep-all;
   }
 
-  .category-buttons button {
-    font-size: 0.85em;
-    padding: 6px 10px;
-  }
+  th:nth-child(1), td:nth-child(1) { width: 20%; }  /* NPC */
+  th:nth-child(2), td:nth-child(2) { width: 30%; }  /* 주는 물품 */
+  th:nth-child(3), td:nth-child(3) { width: 30%; }  /* 받는 물품 */
+  th:nth-child(4), td:nth-child(4) { width: 10%; }  /* 제한 */
+  th:nth-child(5), td:nth-child(5) { width: 10%; }  /* 교환 */
 }
 
 
