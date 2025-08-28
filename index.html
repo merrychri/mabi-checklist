@@ -32,7 +32,25 @@ body {
       border-radius: 20px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       padding: 30px;
+      position: relative;
     }
+
+.reset-button {
+  position: absolute; /* container 기준 우측 상단 */
+  top: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'SchoolSafeOuting', sans-serif;
+  font-weight: 700;
+}
+
+
     h1 {
       text-align: center;
       font-size: 2.5em;
@@ -105,12 +123,13 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 .category-buttons button[data-category='두갈드아일'].active { background: #BCAAA4; }
 .category-buttons button[data-category='가이레흐 언덕'].active { background: #C5E1A5; }
 .category-buttons button[data-category='반호르'].active { background: #A1887F; }
+
   </style>
 </head>
 <body>
 <div class="container">
+<button class="reset-button" onclick="resetAll()">체크 해제</button>
 <h1>📋 물물교환 체크리스트</h1>
-<div class="subtext"><font size="0.7em">* 매일 오전 6시에 자동으로 리셋됩니다.</font></div>
 <div class="category-buttons" id="categoryButtons">
 <button class="active" onclick="filterCategory('전체')">전체</button>
 <button onclick="filterCategory('티르코네일')">티르코네일</button><button onclick="filterCategory('던바튼')">던바튼</button><button onclick="filterCategory('두갈드아일')">두갈드아일</button><button onclick="filterCategory('가이레흐 언덕')">가이레흐 언덕</button><button onclick="filterCategory('반호르')">반호르</button>
@@ -288,6 +307,16 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 </div>
 </div>
 <script>
+
+function resetAll() {
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+  checkboxes.forEach(cb => {
+    cb.checked = false;
+    localStorage.setItem(cb.id, false);
+    cb.closest('tr').classList.remove("checked-row");
+  });
+}
+
     checkboxes.forEach(cb => {
       const saved = localStorage.getItem(cb.id);
       cb.checked = saved === "true";
