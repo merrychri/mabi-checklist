@@ -309,44 +309,55 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 <script>
 
 function resetAll() {
+document.addEventListener("DOMContentLoaded", function () {
   const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+  // ✅ 체크 상태 로컬스토리지에서 불러오기 및 이벤트 연결
   checkboxes.forEach(cb => {
-    cb.checked = false;
-    localStorage.setItem(cb.id, false);
-    cb.closest('tr').classList.remove("checked-row");
-  });
-}
+    const saved = localStorage.getItem(cb.id);
+    cb.checked = saved === "true";
 
-    checkboxes.forEach(cb => {
-      const saved = localStorage.getItem(cb.id);
-      cb.checked = saved === "true";
-      if (cb.checked) cb.closest('tr').classList.add("checked-row");
+    if (cb.checked) {
+      cb.closest("tr").classList.add("checked-row");
+    }
 
-      cb.addEventListener("change", function () {
-        localStorage.setItem(cb.id, cb.checked);
-        if (cb.checked) {
-          cb.closest("tr").classList.add("checked-row");
-        } else {
-          cb.closest("tr").classList.remove("checked-row");
-        }
-      });
+    cb.addEventListener("change", function () {
+      localStorage.setItem(cb.id, cb.checked);
+      if (cb.checked) {
+        cb.closest("tr").classList.add("checked-row");
+      } else {
+        cb.closest("tr").classList.remove("checked-row");
+      }
     });
-
-    window.filterCategory = function (category) {
-      const sections = document.querySelectorAll(".category-section");
-      sections.forEach(sec => {
-        const secCategory = sec.getAttribute("data-category");
-        if (category === "전체" || secCategory === category) {
-          sec.style.display = "";
-        } else {
-          sec.style.display = "none";
-        }
-      });
-      const btns = document.querySelectorAll("#categoryButtons button");
-      btns.forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
-    };
   });
+
+  // ✅ 체크박스 전체 해제 버튼
+  window.resetAll = function () {
+    checkboxes.forEach(cb => {
+      cb.checked = false;
+      localStorage.setItem(cb.id, false);
+      cb.closest("tr").classList.remove("checked-row");
+    });
+  };
+
+  // ✅ 카테고리 필터링
+  window.filterCategory = function (category) {
+    const sections = document.querySelectorAll(".category-section");
+    sections.forEach(sec => {
+      const secCategory = sec.getAttribute("data-category");
+      if (category === "전체" || secCategory === category) {
+        sec.style.display = "";
+      } else {
+        sec.style.display = "none";
+      }
+    });
+    const btns = document.querySelectorAll("#categoryButtons button");
+    btns.forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+  };
+});
+
+    
 </script>
 </body>
 </html>
