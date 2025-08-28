@@ -35,7 +35,7 @@ body {
     }
     h1 {
       text-align: center;
-      font-size: 1.8em;
+      font-size: 2.5em;
       margin-bottom: 5px;
      font-family: 'SchoolSafeOuting', sans-serif;
      font-weight: 700;
@@ -288,21 +288,6 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 </div>
 </div>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const checkboxes = document.querySelectorAll("input[type='checkbox']");
-    const today = new Date();
-    const todayStr = today.toISOString().slice(0, 10);
-    const lastSaved = localStorage.getItem("lastResetDate");
-
-    if (lastSaved !== todayStr && today.getHours() >= 6) {
-      checkboxes.forEach(cb => {
-        cb.checked = false;
-        localStorage.setItem(cb.id, false);
-        cb.closest('tr').classList.remove("checked-row");
-      });
-      localStorage.setItem("lastResetDate", todayStr);
-    }
-
     checkboxes.forEach(cb => {
       const saved = localStorage.getItem(cb.id);
       cb.checked = saved === "true";
