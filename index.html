@@ -76,7 +76,7 @@ body {
       margin-bottom: 20px;
     }
     .category-buttons button {
-      margin: 10 5px;
+      margin: 0 5px;
       padding: 8px 10px;
       border: none;
       border-radius: 100px;
@@ -132,7 +132,7 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 <h1>📋 물물교환 체크리스트</h1>
 <div class="category-buttons" id="categoryButtons">
 <button class="active" onclick="filterCategory('전체')">전체</button>
-<button onclick="filterCategory('티르코네일')">티르코네일</button><button onclick="filterCategory('던바튼')">던바튼</button><button onclick="filterCategory('두갈드아일')">두갈드아일</button><button onclick="filterCategory('가이레흐 언덕')">가이레흐 언덕</button><button onclick="filterCategory('반호르')">반호르</button>
+<button onclick="filterCategory('티르코네일', event)">티르코네일</button><button onclick="filterCategory('던바튼', event)">던바튼</button><button onclick="filterCategory('두갈드아일', event)">두갈드아일</button><button onclick="filterCategory('가이레흐 언덕', event)">가이레흐 언덕</button><button onclick="filterCategory('반호르', event)">반호르</button>
 </div>
 <div class="category-section" data-category="티르코네일">
 <h3><font color="#D1A980">❤︎ 티르코네일</font></h3>
@@ -340,22 +340,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // ✅ 카테고리 필터링
-  window.filterCategory = function (category) {
-    const sections = document.querySelectorAll(".category-section");
-    sections.forEach(sec => {
-      const secCategory = sec.getAttribute("data-category");
-      if (category === "전체" || secCategory === category) {
-        sec.style.display = "";
-      } else {
-        sec.style.display = "none";
-      }
-    });
-    const btns = document.querySelectorAll("#categoryButtons button");
-    btns.forEach(btn => btn.classList.remove("active"));
-    event.target.classList.add("active");
-  };
-});
+  // ✅ 마을 카테고리 필터링
+window.filterCategory = function (category, event) {
+  const sections = document.querySelectorAll(".category-section");
+  sections.forEach(sec => {
+    const secCategory = sec.getAttribute("data-category");
+    if (category === "전체" || secCategory === category) {
+      sec.style.display = "";
+    } else {
+      sec.style.display = "none";
+    }
+  });
+
+  // 버튼 스타일 갱신
+  const btns = document.querySelectorAll("#categoryButtons button");
+  btns.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+};
 
     
 </script>
