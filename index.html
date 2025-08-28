@@ -3,6 +3,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>물물교환 체크리스트</title>
 <style>
 @font-face {
@@ -123,6 +124,44 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 .category-buttons button[data-category='두갈드아일'].active { background: #BCAAA4; }
 .category-buttons button[data-category='가이레흐 언덕'].active { background: #C5E1A5; }
 .category-buttons button[data-category='반호르'].active { background: #A1887F; }
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  .reset-button {
+    font-size: 12px;
+    padding: 6px 12px;
+    top: 15px;
+    right: 15px;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.85em;
+  }
+
+  th, td {
+    font-size: 0.9em;
+    padding: 6px;
+  }
+
+  .category-buttons button {
+    font-size: 0.85em;
+    padding: 6px 10px;
+  }
+}
+
+
 
   </style>
 </head>
