@@ -197,6 +197,68 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
   th:nth-child(5), td:nth-child(5) { width: 10%; }  /* 교환 */
 }
 
+    /* 함선 재료 폴딩 */
+
+    .toggle-button {
+  display: block;
+  margin: 40px auto 20px;
+  background: #ddd;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+.toggle-button:hover {
+  background: #bbb;
+}
+
+/* 함선 테이블 스타일 */
+.ship-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+
+.ship-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  min-width: 500px;
+}
+
+.ship-table th,
+.ship-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ship-table td[rowspan] {
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+/* 반응형 (모바일 대응) */
+@media screen and (max-width: 768px) {
+  .toggle-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .ship-table {
+    font-size: 0.85em;
+  }
+
+  .ship-table-wrapper {
+    margin: 0 5px 30px;
+  }
+}
+
 
 
   </style>
@@ -207,7 +269,12 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 <h1>📋 물물교환 체크리스트</h1>
 <div class="category-buttons" id="categoryButtons">
 <button class="active" onclick="filterCategory('전체')">전체</button>
-<button onclick="filterCategory('티르코네일', event)">티르코네일</button><button onclick="filterCategory('던바튼', event)">던바튼</button><button onclick="filterCategory('두갈드아일', event)">두갈드아일</button><button onclick="filterCategory('가이레흐 언덕', event)">가이레흐 언덕</button><button onclick="filterCategory('반호르', event)">반호르</button>
+<button onclick="filterCategory('티르코네일', event)">티르코네일</button>
+    <button onclick="filterCategory('던바튼', event)">던바튼</button>
+    <button onclick="filterCategory('두갈드아일', event)">두갈드아일</button>
+    <button onclick="filterCategory('가이레흐 언덕', event)">가이레흐 언덕</button>
+    <button onclick="filterCategory('반호르', event)">반호르</button>
+    <button onclick="filterCategory('이멘마하', event)">이멘마하</button>
 </div>
 <div class="category-section" data-category="티르코네일">
 <h3><font color="#D1A980">❤︎ 티르코네일</font></h3>
@@ -357,27 +424,79 @@ th:nth-child(4), td:nth-child(4) { width: 15%; } /* 제한 */
 <td>생채기 꽃<font color="#7F8CAA">x10</font></td>
 <td>물이 든 병<font color="#7F8CAA">x10</font></td>
 <td>1회</td>
-<td><input id="chk_13" type="checkbox"/></td>
+<td><input id="chk_14" type="checkbox"/></td>
 </tr>
 
 <tr class="" data-category="반호르"><td>아이데른</td>
 <td>농어매운탕<font color="#7F8CAA">x1</font></td>
 <td>은합금괴<font color="#7F8CAA">x10</font></td>
 <td>주1회</td>
-<td><input id="chk_14" type="checkbox"/></td>
+<td><input id="chk_15" type="checkbox"/></td>
 </tr>
 <tr class="" data-category="반호르"><td>에일렌</td>
 <td>합금강괴<font color="#7F8CAA">x30</font></td>
 <td>은합금괴<font color="#7F8CAA">x1</font></td>
 <td>1회</td>
-<td><input id="chk_15" type="checkbox"/></td>
+<td><input id="chk_16" type="checkbox"/></td>
 </tr>
 <tr class="" data-category="반호르"><td>에일렌</td>
 <td>특수강괴<font color="#7F8CAA">x3</font></td>
 <td>은합금괴<font color="#7F8CAA">x1</font></td>
 <td>1회</td>
-<td><input id="chk_16" type="checkbox"/></td>
+<td><input id="chk_17" type="checkbox"/></td>
 </tr>
+</tbody>
+</table>
+</div>
+<div class="category-section" data-category="이멘마하">
+<h3><font color="#8294C4">❤︎ 이멘마하</font></h3>
+<table>
+<thead>
+<tr><th>NPC</th>
+<th>제공 품목</th>
+<th>보상 품목</th>
+<th>제한</th>
+<th>교환</th>
+</tr>
+</thead>
+<tbody>
+<tr class="" data-category="이멘마하"><td>갈빈</td>
+<td>장비분해<font color="#7F8CAA">x1000</font></td>
+<td>튼튼한 밧줄<font color="#7F8CAA">x1</font></td>
+<td>주1회</td>
+<td><input id="chk_6-1" type="checkbox"/></td>
+</tr>
+<tr class="" data-category="이멘마하"><td>엘레노아</td>
+<td>케이크<font color="#7F8CAA">x1</font></td>
+<td>최상급 옷감+<font color="#7F8CAA">x2</font></td>
+<td>2회</td>
+<td><input id="chk_6-2" type="checkbox"/></td>
+</tr>
+<tr class="" data-category="이멘마하"><td>델렌</td>
+<td>죽<font color="#7F8CAA">x2</font></td>
+<td>최상급 가죽+<font color="#7F8CAA">x2</font></td>
+<td>2회</td>
+<td><input id="chk_6-3" type="checkbox"/></td>
+</tr>
+<tr class="" data-category="이멘마하"><td>델렌</td>
+<td>죽<font color="#7F8CAA">x2</font></td>
+<td>최상급 목재+<font color="#7F8CAA">x2</font></td>
+<td>2회</td>
+<td><input id="chk_6-4" type="checkbox"/></td>
+</tr>
+<tr class="" data-category="이멘마하"><td>고든</td>
+<td>뭘까<font color="#7F8CAA">x10</font></td>
+<td>묵직한 감자<font color="#7F8CAA">x5</font></td>
+<td>1회</td>
+<td><input id="chk_6-5" type="checkbox"/></td>
+</tr>
+<tr class="" data-category="이멘마하"><td>오슬라</td>
+<td>뭘까<font color="#7F8CAA">x1</font></td>
+<td>운철괴<font color="#7F8CAA">x1</font></td>
+<td>2회</td>
+<td><input id="chk_6-6" type="checkbox"/></td>
+</tr>
+
 </tbody>
 </table>
 </div>
